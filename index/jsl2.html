@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript Statements</h2>
+
+    <p>Multiple statements on one line is allowed.</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        // Initialize variables a, b, and c
+        var a, b, c;
+
+        // Assign values to a and b
+        a = 5;
+        b = 6;
+
+        // Calculate the sum (a + b) and store it in c
+        c = a + b;
+
+        // Use JavaScript to change the content of the HTML element with id="demo1"
+        document.getElementById("demo1").innerHTML = c;
+
+        //window.alert(3+9);
+        document.write('test output with a new line<br>');
+        document.writeln('test output with a new line<br>');
+
+        document.writeln("<h3>Javascript Print</h3>");
+    </script>
+    <button onclick="window.print()">print this page</button>
+    <h3>Conform box</h3>
+    <p id="comfirmbox"></p>
+    <script>
+        function myfunction() {
+            var txt;
+            var r = comfirm("Press a button!");
+            if (r == true) {
+                txt = "you OK!";
+            } else {
+                txt = "you Cancel!";
+            }
+            document.getElementById("confrimbox").innerHTML = txt;
+        }
+    </script>
+    <button onclick="myfunction()">Confirm</button>
+    <h3>screen showing</h3>
+    <script>
+        document.writeln("Screen Width: " + screen.width + "<br>");
+         document.writeln("Screen height: " + screen.height + "<br>");
+    </script>
+
+    <center>
+        <h2 style="color:deeppink;">Hello World</h2>
+        <h3>Eample of JavaScript Prompt</h3>
+        <button onclick="getsomeText()">Click Me</button>
+        <p id="getText"></p>
+        <script>
+            function getsomeText(){
+                var txt=prompt("Please enter some Text","");
+                document.getElementById("getText").innerHTML=txt;
+            }
+        </script>
+        <button onclick="alert('inline HTML');">Test</button>
+    </center>
+    <center>
+        <h1>Execise</h1>
+        <button onclick="document.getElementById('myImage').src='on.png'">Power On</button>
+        <img id="myImage" src="off.png" alt="">
+         <button onclick="document.getElementById('myImage').src='off.png'">Power Off</button>
+    </center>
+</body>
+
+</html>

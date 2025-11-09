@@ -1,0 +1,193 @@
+</html>
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gregorian → Khmer Date Converter</title>
+
+    <!-- បញ្ចូល Library momentkh -->
+    <script src="momentkh/moment.min.js"></script>
+    <script src="momentkh/km.min.js"></script>
+    <script src="momentkh/constant.js"></script>
+    <script src="momentkh/locale/km.js"></script>
+    <script src="momentkh/getSoriyatraLerngSak.js"></script>
+    <script src="momentkh/momentkh.js"></script>
+
+    <style>
+        body {
+            font-family: "Khmer OS Battambang", Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .converter-box {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 360px;
+        }
+
+        h2 {
+            color: #2b3e50;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="converter-box">
+        <h2>🗓️ បន្លែងពីសុរិយគតិ ➜ ចន្ទគតិ</h2>
+        <label for="dateInput">ជ្រើសរើសថ្ងៃខែឆ្នាំ (Gregorian):</label>
+        <input type="date" id="dateInput" value="2025-11-03" />
+        <button onclick="convertDate()">បម្លែង</button>
+
+        <div class="result" id="result">📅 លទ្ធផលនឹងបង្ហាញទីនេះ</div>
+    </div>
+
+    <script>
+        var moment = momentkh(moment);
+
+        function convertDate() {
+            var dateInput = document.getElementById("dateInput").value;
+            if (!dateInput) {
+                alert("សូមជ្រើសរើសថ្ងៃខែឆ្នាំសិន!");
+                return;
+            }
+
+            var khmerDate = moment(dateInput).tokhdate();
+            document.getElementById("result").innerHTML =
+                "📅 ថ្ងៃខែឆ្នាំខ្មែរ៖ <b>" + khmerDate + "</b>";
+        }
+    </script>
+    <h1>ប្រតិទិនខ្មែរ</h1>
+
+    <center>
+        <script>
+            var moment = momentkh(moment);
+            var today = moment();
+            var today_date = today.toKhDate();
+            var today_datekh = today.locale('km').format('ថ្ងៃទីD ខែMMMM ឆ្នាំYYYY');
+
+            document.writeln("<p>" + today_date + "</p>");
+            document.writeln("<p>" + today_datekh + "</p>");
+
+        </script>
+    </center>
+
+
+    <img src="image.png" alt="Today icon" width="30" height="30">
+    <h1>ប្រតិទិនខ្មែរ</h1>
+    <center>
+        <div class="col-sm-3">
+            <form class="form-control">
+                <div class="d-flex gap-2">
+                    <select class="form-select w-auto" id="day">
+                        <option selected>Day</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                         <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                         <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                         <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                    <select class="form-select w-auto" id="month">
+                        <option selected>Month</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <select class="form-select w-auto" id="year">
+                        <option selected>Year</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                    <button type="button" id="btnChange">Change</button>
+                </div>
+            </form>
+        </div>
+    </center>
+
+
+    <script>
+        document.getElementById("btnChange").addEventListener("click", function () {
+            var day = document.getElementById("day").value;
+            var month = document.getElementById("month").value;
+            var year = document.getElementById("year").value;
+
+            if (day === "Day" || month === "Month" || year === "Year") {
+                alert("Please select Day, Month, and Year.");
+                return;
+            }
+
+            var selectedDate = moment(year + '/' + month + '/' + day);
+          
+            var khmerDate = selectedDate.toKhDate();
+            var khmerDatekh = selectedDate.locale('km').format('ថ្ងៃទីD ខែMMMM ឆ្នាំYYYY'); // simplified format
+            document.getElementById("convertDate").innerText = khmerDate;
+            document.getElementById("khmerConvertDate").innerText = khmerDatekh;
+        });
+    </script>
+    <center>
+        <br>
+        <p id="convertDate"></p>
+        <p id="khmerConvertDate"></p>
+    </center>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Lesson 3</h1>
+
+    <script>
+        // --- 1. Basic Data Types ---
+
+        // String
+        var str = "Hello";
+        // Number
+        var num = 10;
+
+        // Output data types to the webpage
+        document.write(typeof(str) + "<br>");
+        document.write(typeof(num) + "<br>");
+
+        // Undefined
+        let name = undefined;
+        console.log(name); // undefined
+
+        // Boolean
+        const datacheck = false;
+        console.log(datacheck); // false
+
+        // --- 2. Working with Numbers ---
+
+        // Simple addition
+        const number1 = 11;
+        console.log(number1 + 11); // 22
+
+        // Division by Zero (results in Infinity)
+        const number2 = 3 / 0;
+        console.log(number2); // Infinity
+
+        // Negative Division by Zero (results in -Infinity)
+        const number3 = -3 / 0;
+        console.log(number3); // -Infinity
+        
+        // Check the type of Infinity
+        console.log(typeof(number3)); // number
+        
+        // --- 3. Object Data Type ---
+
+        // Object declaration
+        const student = {
+            name: "Dara",
+            age: 20,
+            class: "UME"
+        };
+
+        // Output the type of the object
+        console.log(typeof(student)); // object
+        
+        // Output the entire object content
+        console.log(student); // {name: "Dara", age: 20, class: "UME"}
+        console.log("Name: "+student.name);
+        var divided = 5;
+        divided /= 2;
+        console.log(typeof(divided));
+        console.log(divided);
+
+        console.log("comparsion operation")
+    </script>
+
+</body>
+</html>
